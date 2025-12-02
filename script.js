@@ -5,7 +5,6 @@ let secondNumber = "";
 let currentOperator = null;
 let shouldResetDisplay = false;
 
-// basic math functions
 function add(a, b) { return a + b; }
 function subtract(a, b) { return a - b; }
 function multiply(a, b) { return a * b; }
@@ -25,12 +24,10 @@ function operate(operator, a, b) {
   }
 }
 
-// update display
 function updateDisplay(value) {
   display.textContent = value;
 }
 
-// number button events
 document.querySelectorAll(".digit").forEach(btn => {
   btn.addEventListener("click", () => {
     if (display.textContent === "0" || shouldResetDisplay) {
@@ -42,7 +39,6 @@ document.querySelectorAll(".digit").forEach(btn => {
   });
 });
 
-// operator button events
 document.querySelectorAll(".operator").forEach(btn => {
   btn.addEventListener("click", () => {
     if (currentOperator && !shouldResetDisplay) {
@@ -60,7 +56,6 @@ document.querySelectorAll(".operator").forEach(btn => {
   });
 });
 
-// equals
 document.getElementById("equals").addEventListener("click", () => {
   if (!currentOperator) return;
   secondNumber = display.textContent;
@@ -74,7 +69,6 @@ document.getElementById("equals").addEventListener("click", () => {
   shouldResetDisplay = true;
 });
 
-// clear
 document.querySelector(".clear").addEventListener("click", () => {
   display.textContent = "0";
   firstNumber = "";
